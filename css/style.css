@@ -1,0 +1,11 @@
+body{color:#fff;}
+a{color:#eee;text-decoration:none;}
+#aazinga_row{background-image:url('../img/brooke-lark-158019.jpg');background-size:cover;text-align:center;}
+#bazinga_row{background-image:url('../img/ivana-cajina-313879.jpg');background-size:cover;text-align:center;}
+#cazinga_row{background-image:url('../img/bryan-minear-315773.jpg');background-size:cover;text-align:center;}
+.nextBtn{float:right;line-height:3;margin-right:15px;}
+.sectionTitle{background-color:#222;width:100%;height:50px; box-shadow: 1px 1px 10px #000;margin-top:0px;}
+.sectionTitle h3{line-height:.5;}
+.menu-item{line-height:3;}
+.my-section{height:1024px; }
+.my-menu-bottom{position:fixed;left:0px;bottom:0px;height:50px;background-color:#000;opacity:.9}
