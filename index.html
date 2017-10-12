@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel='stylesheet' type='text/css' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+    <link rel='stylesheet' type='text/css' href='css/style.css'>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-route.js"></script>
+    <!-- <link rel='stylesheet' type='text/css' href='style.css'> -->
+    <script src="app.js"></script>
+    <script src="smoothScroll/smooth-scroll.min.js"></script>
+    <script src="smoothScroll/smooth-scroll.polyfills.min.js"></script>
+
+    <link rel='stylesheet' type='text/css' href='AnimateOnScroll/aos.css'>
+    <script src="AnimateOnScroll/aos.js"></script>
+
+    <script src="table/table.controller.js"></script>
+
+    <title>HTML DOC</title>
+</head>
+
+<body>
+
+    <div>
+        <div ng-include="'page-1.html'"></div>
+        <div ng-include="'page-2.html'"></div>
+        <div ng-include="'page-3.html'"></div>
+         
+        <div ng-include="'navigation.html'"></div>
+    </div>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        var scroll = new SmoothScroll('a[href*="#"]');
+        AOS.init();
+    </script>
+
+</body>
+
+</html>
