@@ -1,5 +1,7 @@
 html,body{color:#fff; }
 a{color:#eee;text-decoration:none;}
+.bs-table a{width:100%;}
+.bs-table input{width:100%;}
 input{color:#222;}
 #aazinga_row{background-image:url('../img/brooke-lark-158019.jpg');background-size:cover;text-align:center;}
 #bazinga_row{background-image:url('../img/ivana-cajina-313879.jpg');background-size:cover;text-align:center;}
@@ -13,4 +15,10 @@ input{color:#222;}
 /*over-ride Bootstrap table css*/
 .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
   border-top:none !important;
+}
+.table-row{
+  overflow-y:scroll;height:250px;
+}
+.table-cell{
+  height:250px;
 }
