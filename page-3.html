@@ -3,4 +3,59 @@
           <div id="cazinga"  class="sectionTitle" data-aos="slide-left" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="300">
 						<div class="col-xs-10"><h3>Cazinga!</h3> </div><div class="col-xs-2"><a data-scroll href="#aazinga" class="nextBtn">Top</a></div>
 					</div>
+
+
+          <!-- start -->
+          <div ng-controller="CrudCtrl" class='container' style="margin-top:50px;background-color:#000;padding:15px;">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 data_search_row">
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 section ">
+                    <input class="form-control" id="searchTerm" placeholder="search for ...">
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 section">
+                    <button id="search" type="button" class="btn btn-default" style="width:100%;">search</button>
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-row">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <table border=1 width=100%>
+                      <tr>
+                          <td>Name</td>
+                          <td>Description</td>
+                          <td>Code</td>
+                          <td>Language</td>
+                          <td><span class='add-span' ng-click="add()">Add New</span>
+                          </td>
+                      </tr>
+                      <tr ng-repeat="snippet in snippets.data">
+                          <td>
+                              <input type="hidden" ng-model="snippet.id" ng-show="snippet.editable" placeholder="id">
+                              <input type="text" ng-model="snippet.name" ng-show="snippet.editable" placeholder="name">
+                              <span ng-hide="snippet.editable">{{ snippet.name }}</span>
+                          </td>
+                          <td>
+                              <input type="text" ng-model="snippet.descrip" ng-show="snippet.editable" placeholder="descrip">
+                              <span ng-hide="snippet.editable">{{ snippet.descrip }}</span>
+                          </td>
+                          <td>
+                              <input type="text" ng-model="snippet.code" ng-show="snippet.editable" placeholder="code">
+                              <span ng-hide="snippet.editable">{{ snippet.code }}</span>
+                          </td>
+                          <td>
+                              <input type="text" ng-model="snippet.language" ng-show="snippet.editable" placeholder="language">
+                              <span ng-hide="snippet.editable">{{ snippet.language }}</span>
+                          </td>
+                          <td>
+                              <a class='edit-span btn btn-default'   ng-click="edit($index)" ng-hide="snippet.editable">?</a>
+                              <a class='save-span btn btn-default'   ng-click="save($index)" ng-show="snippet.editable">Save</a>
+                              <a class='delete-span btn btn-default' ng-click="delete($index)">X</a>
+                          </td>
+                      </tr>
+                  </table>
+              </div>
+            </div>
+          </div>
+          <div  crud-directive></div>
+
+          <!-- end -->
         </div>

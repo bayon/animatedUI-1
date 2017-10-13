@@ -1,0 +1,27 @@
+<script>
+
+angular.module('phoneDetail', [
+  'ngRoute'
+]);
+
+app/phone-detail/phone-detail.component.js:
+
+angular.
+  module('phoneDetail').
+  component('phoneDetail', {
+    template: 'TBD: Detail view for <span>{{$ctrl.phoneId}}</span>',
+    controller: ['$routeParams',
+      function PhoneDetailController($routeParams) {
+        this.phoneId = $routeParams.phoneId;
+      }
+    ]
+  });
+
+app/app.module.js:
+
+angular.module('phonecatApp', [
+  ...
+  'phoneDetail',
+  ...
+]);
+</script>
