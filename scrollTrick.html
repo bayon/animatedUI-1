@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+
+    <style>
+      * { padding: 0; margin: 0; }
+      html { min-height: 1000%; }
+      #toolbox {
+        overflow: auto;
+      /*  position: fixed;*/
+
+
+        width: 200px;
+        height: 300px;
+        background: #ccc;
+      }
+    </style>
+
+  </head>
+
+  <body>
+
+    <div id="toolbox">
+      <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+    </div>
+
+    <script>
+
+
+
+      function scrollOnly(id){
+          var toolbox = $('#'+id),
+              height = toolbox.height(),
+              scrollHeight = toolbox.get(0).scrollHeight;
+          toolbox.off("mousewheel").on("mousewheel", function (event) {
+            var blockScrolling = this.scrollTop === scrollHeight - height && event.deltaY < 0 || this.scrollTop === 0 && event.deltaY > 0;
+            return !blockScrolling;
+          });
+        }
+      scrollOnly("toolbox");
+    </script>
+
+  </body>
+
+</html>
