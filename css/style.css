@@ -19,6 +19,7 @@ input{color:#222;}
 .table-row{
   overflow-y:scroll;height:250px;
 }
+.scroll-250{  overflow-y:scroll;height:250px;}
 .table-cell{
   height:250px;
 }

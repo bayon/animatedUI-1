@@ -1,0 +1,68 @@
+<style>
+.listContainer{background-color:#222;}
+</style>
+<!-- <div class="col-md-12" style="background-color:#333;">
+  <ul>
+    <li ng-repeat="phone in $ctrl.phones">
+      <span>{{phone.name}}</span>
+      <p>{{phone.snippet}}</p>
+    </li>
+  </ul>
+</div>
+-->
+<!-- step 2:
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <!--Sidebar content- ->
+
+      Search: <input ng-model="$ctrl.query" />
+
+    </div>
+    <div class="col-md-10">
+      <!--Body content- ->
+
+      <ul class="phones">
+        <li ng-repeat="phone in $ctrl.phones | filter:$ctrl.query">
+          <span>{{phone.name}}</span>
+          <p>{{phone.snippet}}</p>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>
+-->
+<!-- step 3: -->
+<div class="container-fluid listContainer" >
+  <div class="row">
+    <div class="col-md-2" style="position:relative;top:0px;left:0px;">
+      <!--Sidebar content-->
+
+      <p>
+        Search:
+        <input ng-model="$ctrl.query">
+      </p>
+
+      <p>
+        Sort by:
+        <select ng-model="$ctrl.orderProp">
+          <option value="name">Alphabetical</option>
+          <option value="age">Newest</option>
+        </select>
+      </p>
+
+    </div>
+    <div class="col-md-10 scroll-250">
+      <!--Body content-->
+
+      <ul class="phones">
+        <li ng-repeat="phone in $ctrl.phones | filter:$ctrl.query | orderBy:$ctrl.orderProp">
+          <span>{{phone.name}}</span>
+          <p>{{phone.snippet}}</p>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>

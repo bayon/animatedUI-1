@@ -1,5 +1,5 @@
 //initial angular module
-var app = angular.module('app',["ngRoute"]);
+var app = angular.module('app',["ngRoute","phoneList"]);
 
 //routing
 app.config(function($routeProvider) {
