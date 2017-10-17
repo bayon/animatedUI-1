@@ -7,3 +7,6 @@ the $http service is pulling straight json data from a file.
 the template view introduces filters for searching and sorting.
 the sort and search parameters are defined by ng-models  with the prefix $ctrl.
 the filters are applied inline with the ng-repeat data loop
+
+Next Goal:
+make the phoneList CRUD 
