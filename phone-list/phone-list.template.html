@@ -1,5 +1,10 @@
 <style>
+#phoneListView{padding:15px;}
 .listContainer{background-color:#222;}
+.phones ul, .phones li{text-align:left;}
+#phoneListView input,select{color:#222;}
+.div-search{position:relative;top:0px;left:0px;}
+.div-scroll{border:solid 1px black;background-color:#111;}
 </style>
 <!-- <div class="col-md-12" style="background-color:#333;">
   <ul>
@@ -34,9 +39,9 @@
 </div>
 -->
 <!-- step 3: -->
-<div class="container-fluid listContainer" >
+<div id="phoneListView"  class="container-fluid listContainer" >
   <div class="row">
-    <div class="col-md-2" style="position:relative;top:0px;left:0px;">
+    <div class="col-md-2 div-search" style="/*position:relative;top:0px;left:0px;  keeps still while scrolling data. */">
       <!--Sidebar content-->
 
       <p>
@@ -53,7 +58,7 @@
       </p>
 
     </div>
-    <div class="col-md-10 scroll-250">
+    <div class="col-md-10 div-scroll scroll-250">
       <!--Body content-->
 
       <ul class="phones">

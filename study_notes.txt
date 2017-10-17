@@ -1,0 +1,9 @@
+component study:
+I created a separate module for the phone feature.
+from the index I included both the module and the component.
+the module is based of the root angular object
+the component uses a templateURL and it injects the $http service
+the $http service is pulling straight json data from a file.
+the template view introduces filters for searching and sorting.
+the sort and search parameters are defined by ng-models  with the prefix $ctrl.
+the filters are applied inline with the ng-repeat data loop

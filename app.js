@@ -1,5 +1,7 @@
 //initial angular module
-var app = angular.module('app',["ngRoute","phoneList"]);
+// registering an array of other modules to be used 
+// I don't think I am currently using ngRoute.
+var app = angular.module('app',["ngRoute","phoneList"]); 
 
 //routing
 app.config(function($routeProvider) {

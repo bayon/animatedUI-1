@@ -32,13 +32,13 @@ angular.module('phoneList').
   component('phoneList', {
   templateUrl:'phone-list/phone-list.template.html',
   controller:['$http', function PhoneListController($http){
-    //tripped up on change from this to self
-    var self = this;
-    self.orderProp = 'age';
-    $http.get('phones/phones.json').then(function(response) {
-       self.phones = response.data;
-       console.log("self.phones,",self.phones);
-     });
-   }
-  ]
-});
+                  //tripped up on change from this to self
+                  var self = this;
+                  self.orderProp = 'age';
+                  $http.get('phones/phones.json').then(function(response) {
+                       self.phones = response.data;
+                       console.log("self.phones,",self.phones);
+                   });
+               }
+            ]
+  });
