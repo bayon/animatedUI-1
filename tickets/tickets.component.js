@@ -5,11 +5,13 @@ angular.module('tickets').
                   //tripped up on change from this to self
                   var self = this;
                   self.orderProp = 'name';
+                  self.query = '';
+                  self.endpoint = "http://www.forteworks.com/api/animatedUI.php";
                  /* $http.get('phones/phones.json').then(function(response) {
                        self.phones = response.data;
                        console.log("self.phones,",self.phones);
                    });*/
-                   $http.get("http://localhost:8989/jppa/research/angular/animatedUI-1/data.php?read=1").then(function(response) {
+                   $http.get(self.endpoint+"?read=1").then(function(response) {
                        self.tickets = response.data;
                        console.log("self.tickets,",self.tickets);
                    });
@@ -43,8 +45,8 @@ angular.module('tickets').
                           console.log('$scope.snippets[index]:',self.tickets[index]);
                           var obj = self.tickets[index];
                           var data = {method:$scope.method, id: obj.id, name: obj.name, descrip: obj.descrip, code:obj.code, language:obj.language};
-                          var endpoint = "http://localhost:8989/jppa/research/angular/animatedUI-1/data.php";
-                          $http.post(endpoint, data).then(function(msg){
+                          //var endpoint = self.endpoint;
+                          $http.post(self.endpoint, data).then(function(msg){
                               if(msg.loginSucceeded==="true"){
                                   console.log(msg)
                               }else{
@@ -57,15 +59,15 @@ angular.module('tickets').
                       }
 
                       $scope.save = function(index) {
-                         
+
                           self.tickets[index].editable = false;
                           console.log('$scope.snippets[index]:',self.tickets[index]);
                           var obj = self.tickets[index];
                            console.log(index);
                          console.log(self.tickets[index].name);
                           var data = {method:$scope.method, id: obj.id, name: obj.name, descrip: obj.descrip, code:obj.code, language:obj.language};
-                          var endpoint = "http://localhost:8989/jppa/research/angular/animatedUI-1/data.php";
-                          $http.post(endpoint, data).then(function(msg){
+                          //var endpoint = "http://localhost:8989/jppa/research/angular/animatedUI-1/data.php";
+                          $http.post(self.endpoint, data).then(function(msg){
                               if(msg.loginSucceeded==="true"){
                                   console.log(msg)
                               }else{
@@ -94,5 +96,3 @@ angular.module('tickets').
                }
             ]
   });
-
- 

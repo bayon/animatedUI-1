@@ -6,13 +6,12 @@
 .div-search{position:relative;top:0px;left:0px;}
 .div-scroll{border:solid 1px black;background-color:#111;}
 </style>
- 
+
 <!-- step 3: -->
 <div id="ticketListView"  class="container-fluid listContainer" >
   <div class="row">
     <div class="col-md-2 div-search" style="/*position:relative;top:0px;left:0px;  keeps still while scrolling data. */">
       <!--Sidebar content-->
-
       <p>
         Search:
         <input ng-model="$ctrl.query">
@@ -36,9 +35,9 @@
             </div>
       <ul class="tickets">
         <!-- filter interference with crud:  | filter:$ctrl.query | orderBy:$ctrl.orderProp -->
-        <li ng-repeat="ticket in $ctrl.tickets">
+        <li ng-repeat="ticket in $ctrl.tickets track by $index    ">
 
-          
+
           <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 text-right">
                     Name:
                 </div>
