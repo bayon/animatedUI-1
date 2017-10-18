@@ -90,22 +90,4 @@ angular.module('tickets').
             ]
   });
 
-  /*
-  app.controller('CrudCtrl',
-    ['$scope','$http',  function($scope,$http) {
-        $scope.method ="na";
-        $scope.snippets = [];
-
-        
-        $scope.entity = {}
-
-        $scope.edit = function(index) {
-            $scope.method ="update";
-            $scope.entity = $scope.snippets.data[index];
-            $scope.entity.index = index;
-            $scope.entity.editable = true;
-
-        }
-
-       
-*/
+ 
