@@ -35,7 +35,8 @@
                 </div>
             </div>
       <ul class="tickets">
-        <li ng-repeat="ticket in $ctrl.tickets | filter:$ctrl.query | orderBy:$ctrl.orderProp">
+        <!-- filter interference with crud:  | filter:$ctrl.query | orderBy:$ctrl.orderProp -->
+        <li ng-repeat="ticket in $ctrl.tickets">
 
           
           <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 text-right">

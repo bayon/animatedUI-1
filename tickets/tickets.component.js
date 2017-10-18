@@ -29,6 +29,8 @@ angular.module('tickets').
                         $scope.method ="update";
                         console.log('update');
                          console.log( self.tickets[index]);
+                         console.log(index);
+                         console.log(self.tickets[index].name);
                         //console.log($scope.snippets.data[index]);
                         $scope.entity = self.tickets[index];
                         $scope.entity.index = index;
@@ -41,7 +43,7 @@ angular.module('tickets').
                           console.log('$scope.snippets[index]:',self.tickets[index]);
                           var obj = self.tickets[index];
                           var data = {method:$scope.method, id: obj.id, name: obj.name, descrip: obj.descrip, code:obj.code, language:obj.language};
-                          var endpoint = "http://localhost:8989/jppa/research/angularWiki/crud/data.php";
+                          var endpoint = "http://localhost:8989/jppa/research/angular/animatedUI-1/data.php";
                           $http.post(endpoint, data).then(function(msg){
                               if(msg.loginSucceeded==="true"){
                                   console.log(msg)
@@ -55,11 +57,14 @@ angular.module('tickets').
                       }
 
                       $scope.save = function(index) {
+                         
                           self.tickets[index].editable = false;
                           console.log('$scope.snippets[index]:',self.tickets[index]);
                           var obj = self.tickets[index];
+                           console.log(index);
+                         console.log(self.tickets[index].name);
                           var data = {method:$scope.method, id: obj.id, name: obj.name, descrip: obj.descrip, code:obj.code, language:obj.language};
-                          var endpoint = "http://localhost:8989/jppa/research/angularWiki/crud/data.php";
+                          var endpoint = "http://localhost:8989/jppa/research/angular/animatedUI-1/data.php";
                           $http.post(endpoint, data).then(function(msg){
                               if(msg.loginSucceeded==="true"){
                                   console.log(msg)
