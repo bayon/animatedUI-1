@@ -1,0 +1,171 @@
+<style>
+#ticketsView{padding:15px;}
+.listContainer{background-color:#222;}
+.tickets ul, .tickets li{text-align:left;}
+#ticketsView input,select{color:#222;}
+.div-search{position:relative;top:0px;left:0px;}
+.div-scroll{border:solid 1px black;background-color:#111;}
+</style>
+ <!--
+
+<div class="container-fluid">
+  <div class="col-lg-12 col-sm-12 col-xs-12">
+      <table class="table">
+          <tr>
+              <th>Name</th><th>Number</th>
+          </tr>
+          <tr ng-repeat="x in data">
+              <td><input type="text"   value="{{ x.contact_name }}" ></td>
+              <td><input type="text"   value="{{ x.contact_no }}" ></td>
+          </tr>
+      </table>
+  </div>
+</div>
+
+
+ -->
+<div id="ticketsView"  class="container-fluid listContainer" >
+  <div class="row">
+    <div class="col-md-2 div-search" style="/*position:relative;top:0px;left:0px;  keeps still while scrolling data. */">
+      <!--Sidebar content-->
+
+      <p>
+        Search:
+        <input ng-model="$ctrl.query">
+      </p>
+
+      <p>
+        Sort by:
+        <select ng-model="$ctrl.orderProp">
+          <option value="name">Alphabetical</option>
+          <option value="language">Language</option>
+        </select>
+      </p>
+
+    </div>
+    <div class="col-md-10 div-scroll scroll-250">
+      <!--Body content-->
+
+      <ul class="tickets">
+        <li ng-repeat="ticket in $ctrl.tickets | filter:$ctrl.query | orderBy:$ctrl.orderProp">
+          <!--<span>{{ticket.name}}</span>
+          <p>{{ticket.snippet}}</p> -->
+                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 text-right">
+                    Name:
+                </div>
+                <div class='col-xs-6 col-sm-9 col-md-9 col-lg-9 text-left'>
+                    <input type="hidden" ng-model="tickets.id" ng-show="tickets.editable" placeholder="id">
+                    <input type="text" ng-model="tickets.name" ng-show="tickets.editable" placeholder="name">
+                    <span ng-hide="tickets.editable">{{ tickets.name }}</span>
+                </div>
+                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 text-right">
+                    Description:
+                </div>
+                <div class='col-xs-6 col-sm-9 col-md-9 col-lg-9 text-left'>
+                    <input type="text" ng-model="tickets.descrip" ng-show="tickets.editable" placeholder="descrip">
+                    <span ng-hide="tickets.editable">{{ tickets.descrip }}</span>
+                </div>
+                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 text-right">
+                    Code:
+                </div>
+                <div class='col-xs-6 col-sm-9 col-md-9 col-lg-9 text-left'>
+                    <input type="text" ng-model="tickets.code" ng-show="tickets.editable" placeholder="code">
+                    <span ng-hide="tickets.editable">{{ tickets.code }}</span>
+                </div>
+                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 text-right">
+                    Language:
+                </div>
+                <div class='col-xs-6 col-sm-9 col-md-9 col-lg-9 text-left'>
+                    <input type="text" ng-model="tickets.language" ng-show="tickets.editable" placeholder="language">
+                    <span ng-hide="tickets.editable">{{ tickets.language }}</span>
+                </div>
+                <div class='col-sm-12 col-md-12 col-lg-12 text-right'>
+                    <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center'>
+                        <a class='edit-span btn btn-default row-btn' ng-click="edit($index)" ng-hide="tickets.editable">Edit</a>
+                    </div>
+                    <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center'>
+                        <a class='save-span btn btn-default  row-btn' ng-click="save($index)" ng-show="tickets.editable">Save</a>
+                    </div>
+                    <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center'>
+                        <a class='delete-span btn btn-default  row-btn' ng-click="delete($index)">Delete</a>
+                    </div>
+                </div>
+
+
+          <!-- end -->
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+<!--
+ <!-- start - - >
+    <div ng-controller="CrudCtrl" class='container bs-table' style="margin-top:50px;background-color:#000;padding:15px;">
+
+
+
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 data_search_row">
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 section ">
+                <input class="form-control" id="searchTerm" placeholder="search for ...">
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 section">
+                <button id="search" type="button" class="btn btn-default" style="width:100%;">search</button>
+            </div>
+        </div>
+
+        <div  id="cazingaScroll" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-row">
+
+            <div  class='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
+                <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 '>
+                    <a class='add-span btn btn-default' ng-click="add()">Add New</a>
+                </div>
+            </div>
+            <div class='table-cell' ng-repeat="tickets in ticketss.data">
+                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 text-right">
+                    Name:
+                </div>
+                <div class='col-xs-6 col-sm-9 col-md-9 col-lg-9 text-left'>
+                    <input type="hidden" ng-model="tickets.id" ng-show="tickets.editable" placeholder="id">
+                    <input type="text" ng-model="tickets.name" ng-show="tickets.editable" placeholder="name">
+                    <span ng-hide="tickets.editable">{{ tickets.name }}</span>
+                </div>
+                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 text-right">
+                    Description:
+                </div>
+                <div class='col-xs-6 col-sm-9 col-md-9 col-lg-9 text-left'>
+                    <input type="text" ng-model="tickets.descrip" ng-show="tickets.editable" placeholder="descrip">
+                    <span ng-hide="tickets.editable">{{ tickets.descrip }}</span>
+                </div>
+                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 text-right">
+                    Code:
+                </div>
+                <div class='col-xs-6 col-sm-9 col-md-9 col-lg-9 text-left'>
+                    <input type="text" ng-model="tickets.code" ng-show="tickets.editable" placeholder="code">
+                    <span ng-hide="tickets.editable">{{ tickets.code }}</span>
+                </div>
+                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 text-right">
+                    Language:
+                </div>
+                <div class='col-xs-6 col-sm-9 col-md-9 col-lg-9 text-left'>
+                    <input type="text" ng-model="tickets.language" ng-show="tickets.editable" placeholder="language">
+                    <span ng-hide="tickets.editable">{{ tickets.language }}</span>
+                </div>
+                <div class='col-sm-12 col-md-12 col-lg-12 text-right'>
+                    <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center'>
+                        <a class='edit-span btn btn-default row-btn' ng-click="edit($index)" ng-hide="tickets.editable">Edit</a>
+                    </div>
+                    <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center'>
+                        <a class='save-span btn btn-default  row-btn' ng-click="save($index)" ng-show="tickets.editable">Save</a>
+                    </div>
+                    <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center'>
+                        <a class='delete-span btn btn-default  row-btn' ng-click="delete($index)">Delete</a>
+                    </div>
+                </div>
+            </div>
+            <!-- <phone-list></phone-list> - - >
+        </div>
+    </div>
+    -->

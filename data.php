@@ -26,6 +26,23 @@
         mysqli_free_result($result);
         mysqli_close($con);
 
+   }else if(isset($_GET['read'])){
+      if (mysqli_connect_errno())
+          {
+          echo "Failed to connect to MySQL: " . mysqli_connect_error();
+          }
+        $sql = "SELECT * FROM ".$TABLE."   ";
+
+        $result=mysqli_query($con,$sql);
+        while($row=mysqli_fetch_assoc($result)){
+           $data[] = $row;
+        }
+        $json = json_encode($data);
+        echo($json);
+        // Free result set
+        mysqli_free_result($result);
+        mysqli_close($con);
+
    }else{
 
       $postdata = file_get_contents("php://input");
