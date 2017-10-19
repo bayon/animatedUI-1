@@ -5,6 +5,7 @@
 #ticketListView input,select{color:#222;}
 .div-search{position:relative;top:0px;left:0px;}
 .div-scroll{border:solid 1px black;background-color:#111;}
+#ticketListView div{/*border:dotted 1px #ccc;*/}
 </style>
 
 <!-- step 3: -->
@@ -29,58 +30,68 @@
     <div class="col-md-10 div-scroll scroll-250">
       <!--Body content-->
  <div  class='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
-                <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 '>
+                <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 text-left'>
                     <a class='add-span btn btn-default' ng-click="add()">Add New</a>
                 </div>
             </div>
-      <ul class="tickets">
+      <div class="tickets">
         <!-- filter interference with crud:  | filter:$ctrl.query | orderBy:$ctrl.orderProp -->
-        <li ng-repeat="ticket in $ctrl.tickets track by $index    ">
+        <div ng-repeat="ticket in $ctrl.tickets track by $index    ">
 
-
-          <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 text-right">
+              <div class="row">
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-right">
                     Name:
                 </div>
-                <div class='col-xs-6 col-sm-9 col-md-9 col-lg-9 text-left'>
+                <div class='col-xs-9 col-sm-9 col-md-9 col-lg-9 text-left'>
                     <input type="hidden" ng-model="ticket.id" ng-show="ticket.editable" placeholder="id">
                     <input type="text" ng-model="ticket.name" ng-show="ticket.editable" placeholder="name">
                     <span ng-hide="ticket.editable">{{ tickets.name }}</span>
                 </div>
-                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 text-right">
+              </div>
+              <div class="row">
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-right">
                     Description:
                 </div>
-                <div class='col-xs-6 col-sm-9 col-md-9 col-lg-9 text-left'>
+                <div class='col-xs-9 col-sm-9 col-md-9 col-lg-9 text-left'>
                     <input type="text" ng-model="ticket.descrip" ng-show="ticket.editable" placeholder="descrip">
                     <span ng-hide="ticket.editable">{{ ticket.descrip }}</span>
                 </div>
-                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 text-right">
+              </div>
+              <div class="row">
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-right">
                     Code:
                 </div>
-                <div class='col-xs-6 col-sm-9 col-md-9 col-lg-9 text-left'>
+                <div class='col-xs-9 col-sm-9 col-md-9 col-lg-9 text-left'>
                     <input type="text" ng-model="ticket.code" ng-show="ticket.editable" placeholder="code">
                     <span ng-hide="ticket.editable">{{ ticket.code }}</span>
                 </div>
-                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 text-right">
+              </div>
+              <div class="row">
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-right">
                     Language:
                 </div>
-                <div class='col-xs-6 col-sm-9 col-md-9 col-lg-9 text-left'>
+                <div class='col-xs-9 col-sm-9 col-md-9 col-lg-9 text-left'>
                     <input type="text" ng-model="ticket.language" ng-show="ticket.editable" placeholder="language">
                     <span ng-hide="ticket.editable">{{ ticket.language }}</span>
                 </div>
+              </div>
+              <div class="row">
                 <div class='col-sm-12 col-md-12 col-lg-12 text-right'>
-                    <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center'>
+                    <div class='col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center'>
                         <a class='edit-span btn btn-default row-btn' ng-click="edit($index)" ng-hide="ticket.editable">Edit</a>
                     </div>
-                    <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center'>
+                    <div class='col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center'>
                         <a class='save-span btn btn-default  row-btn' ng-click="save($index)" ng-show="ticket.editable">Save</a>
                     </div>
-                    <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center'>
+                    <div class='col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center'>
                         <a class='delete-span btn btn-default  row-btn' ng-click="delete($index)">Delete</a>
                     </div>
                 </div>
+              </div>
 
-        </li>
-      </ul>
+
+        </div>
+      </div>
 
     </div>
   </div>

@@ -67,10 +67,13 @@ angular.module('tickets').
                          console.log(self.tickets[index].name);
                           var data = {method:$scope.method, id: obj.id, name: obj.name, descrip: obj.descrip, code:obj.code, language:obj.language};
                           //var endpoint = "http://localhost:8989/jppa/research/angular/animatedUI-1/data.php";
+
                           $http.post(self.endpoint, data).then(function(msg){
                               if(msg.loginSucceeded==="true"){
-                                  console.log(msg)
+                                 console.log('SUCCESS');
+                                 console.log(msg)
                               }else{
+                                  console.log('ERROR');
                                   console.log(msg);
                               }
                           });
